@@ -20,12 +20,12 @@ public class CovidTrackingApiRepository implements CovidTrackingApi {
     }
 
     @Override
-    public StateCurrentStats[] getAllStatesCurrentStats() {
-        return restTemplate.getForObject(allStatesUrl, StateCurrentStats[].class);
+    public StateStats[] getAllStatesCurrentStats() {
+        return restTemplate.getForObject(allStatesUrl, StateStats[].class);
     }
 
     @Override
-    public StateCurrentStats getStatsForState(String state, String date) {
-        return restTemplate.getForObject(String.format(specificStateUrl, state, date), StateCurrentStats.class);
+    public StateStats getStatsForState(String state, String date) {
+        return restTemplate.getForObject(String.format(specificStateUrl, state, date), StateStats.class);
     }
 }

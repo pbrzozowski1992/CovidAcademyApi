@@ -2,8 +2,8 @@ package pl.sdaacademy.covidacademyapi.states_stats.repository;
 
 public interface CovidTrackingApi {
 
-    StateCurrentStats[] getAllStatesCurrentStats();
+    StateStats[] getAllStatesCurrentStats();
 
-    StateCurrentStats getStatsForState(String state, String date);
+    StateStats getStatsForState(String state, String date);
 
 }
