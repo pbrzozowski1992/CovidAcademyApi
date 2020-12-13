@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.sdaacademy.covidacademyapi.states_metadata.serivce.StatesMetadataService;
 import pl.sdaacademy.covidacademyapi.states_metadata.repository.StatesMetadata;
 
+import java.util.List;
+
 @RequestMapping("/info")
 @RestController
 public class StatesMetadataController {
@@ -17,7 +19,7 @@ public class StatesMetadataController {
     }
 
     @GetMapping
-    public StatesMetadata[] getStatesMetadata() {
+    public List<StatesMetadata> getStatesMetadata() {
         return statesMetadataService.getStatesMetadata();
     }
 }

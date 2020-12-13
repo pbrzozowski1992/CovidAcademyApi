@@ -1,7 +1,12 @@
 package pl.sdaacademy.covidacademyapi.states_metadata.repository;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class StatesMetadata {
 
+    @Id
     private String state;
     private String name;
     private String twitter;
