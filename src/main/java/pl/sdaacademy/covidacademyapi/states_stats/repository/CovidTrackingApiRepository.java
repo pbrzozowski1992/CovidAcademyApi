@@ -8,16 +8,24 @@ import org.springframework.web.client.RestTemplate;
 public class CovidTrackingApiRepository implements CovidTrackingApi {
 
     private final RestTemplate restTemplate;
-    private final String url;
+    private final String allStatesUrl;
+    private final String specificStateUrl;
 
     public CovidTrackingApiRepository(RestTemplate restTemplate,
-                                      @Value("${covidtrackingapi.url}") String url) {
-        this.url = url;
+                                      @Value("${covidtrackingapi.url}") String allStatesUrl,
+                                      @Value("${covidtrackingapi.specificstate.url}") String specificStateUrl) {
+        this.allStatesUrl = allStatesUrl;
         this.restTemplate = restTemplate;
+        this.specificStateUrl = specificStateUrl;
     }
 
     @Override
     public StateCurrentStats[] getAllStatesCurrentStats() {
-        return restTemplate.getForObject(url, StateCurrentStats[].class);
+        return restTemplate.getForObject(allStatesUrl, StateCurrentStats[].class);
+    }
+
+    @Override
+    public StateCurrentStats getStatsForState(String state, String date) {
+        return restTemplate.getForObject(String.format(specificStateUrl, state, date), StateCurrentStats.class);
     }
 }

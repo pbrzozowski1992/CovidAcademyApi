@@ -19,4 +19,8 @@ public class StatesStatsService {
         //logika bizensowa, np. mapowanie, validacja, itp
         return covidTrackingApi.getAllStatesCurrentStats();
     }
+
+    public StateCurrentStats getStatsForState(String state, String date) {
+        return covidTrackingApi.getStatsForState(state, date);
+    }
 }
