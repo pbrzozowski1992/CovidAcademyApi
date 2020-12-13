@@ -1,4 +1,4 @@
-package pl.sdaacademy.covidacademyapi.states_metadata;
+package pl.sdaacademy.covidacademyapi.states_metadata.repository;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;

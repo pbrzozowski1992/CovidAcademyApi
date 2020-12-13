@@ -1,4 +1,4 @@
-package pl.sdaacademy.covidacademyapi.states_metadata;
+package pl.sdaacademy.covidacademyapi.states_metadata.repository;
 
 public class StatesMetadata {
 

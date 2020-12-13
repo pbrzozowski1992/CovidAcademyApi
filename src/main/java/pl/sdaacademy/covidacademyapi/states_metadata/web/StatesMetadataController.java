@@ -1,8 +1,10 @@
-package pl.sdaacademy.covidacademyapi.states_metadata;
+package pl.sdaacademy.covidacademyapi.states_metadata.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.sdaacademy.covidacademyapi.states_metadata.serivce.StatesMetadataService;
+import pl.sdaacademy.covidacademyapi.states_metadata.repository.StatesMetadata;
 
 @RequestMapping("/info")
 @RestController
