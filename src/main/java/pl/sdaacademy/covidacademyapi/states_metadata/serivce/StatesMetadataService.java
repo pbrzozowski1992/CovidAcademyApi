@@ -40,4 +40,11 @@ public class StatesMetadataService {
         }
         return statesMetadataDbRepository.findByNameIgnoreCase(name);
     }
+
+    public Optional<StatesMetadata> getStateById(String id) {
+        if (statesMetadataDbRepository.count() == 0) {
+            fetchStatesMetadata();
+        }
+        return statesMetadataDbRepository.findById(id);
+    }
 }

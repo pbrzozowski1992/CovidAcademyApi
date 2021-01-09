@@ -9,6 +9,8 @@ import pl.sdaacademy.covidacademyapi.states_stats.repository.StateStats;
 import pl.sdaacademy.covidacademyapi.states_stats.serivce.StateStatsDTO;
 import pl.sdaacademy.covidacademyapi.states_stats.serivce.StatesStatsService;
 
+import java.util.List;
+
 @RequestMapping("/states")
 @RestController
 public class StatesStatsController {
@@ -21,7 +23,7 @@ public class StatesStatsController {
     }
 
     @GetMapping
-    public StateStats[] getCurrentStateStats() {
+    public List<StateStatsDTO> getCurrentStateStats() {
         return statesStatsService.getAllStatesCurrentStats();
     }
 
