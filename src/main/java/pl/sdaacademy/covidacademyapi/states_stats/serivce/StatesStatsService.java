@@ -31,12 +31,6 @@ public class StatesStatsService {
                 .orElseThrow(()->{
                     throw new NoStateFoundException(state);
                 }).getState();
-
-        //mapowanie nazwy stanu na akronim
-        //zampowania wartość powinna zostać przekazana do covidTrackingApi.getStatsForState
-        //musimy wykorzystać StatesMetadataService w celu pobrania metadanych dla każdego stanu
-        //musimy znaleść na liście metadanych konkretny stan po nazwie
-        //jeśli stan istnieje powiniśmy pobrać akronim z obiektu
         return covidTrackingApi.getStatsForState(acronym, date);
     }
 }
