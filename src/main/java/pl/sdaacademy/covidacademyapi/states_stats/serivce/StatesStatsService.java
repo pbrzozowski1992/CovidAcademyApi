@@ -27,13 +27,10 @@ public class StatesStatsService {
     }
 
     public StateStats getStatsForState(String state, String date) {
-        List<StatesMetadata> statesMetadata = statesMetadataService.getStatesMetadata();
-        String acronym = statesMetadata.stream()
-                .filter(metadata -> metadata.getName().equalsIgnoreCase(state))
-                .map(metadata->metadata.getState())
-                .findAny().orElseThrow(()->{
+        String acronym = statesMetadataService.getStateByName(state)
+                .orElseThrow(()->{
                     throw new NoStateFoundException(state);
-                });
+                }).getState();
 
         //mapowanie nazwy stanu na akronim
         //zampowania wartość powinna zostać przekazana do covidTrackingApi.getStatsForState
