@@ -3,7 +3,6 @@ package pl.sdaacademy.covidacademyapi.states_stats.serivce;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sdaacademy.covidacademyapi.states_metadata.repository.StatesMetadata;
-import pl.sdaacademy.covidacademyapi.states_metadata.repository.StatesMetadataDbRepository;
 import pl.sdaacademy.covidacademyapi.states_metadata.serivce.StatesMetadataService;
 import pl.sdaacademy.covidacademyapi.states_stats.repository.CovidTrackingApi;
 import pl.sdaacademy.covidacademyapi.states_stats.repository.StateStats;
@@ -30,7 +29,7 @@ public class StatesStatsService {
 
     public List<StateStatsDTO> getAllStatesCurrentStats() {
         return Arrays.stream(covidTrackingApi.getAllStatesCurrentStats())
-                .map(stateStats->{
+                .map(stateStats -> {
                     StatesMetadata statesMetadata =
                             statesMetadataService.getStateById(stateStats.getState()).get();
                     return stateStatsTransformer.transformToDTO(stateStats, statesMetadata);
@@ -40,7 +39,7 @@ public class StatesStatsService {
 
     public StateStatsDTO getStatsForState(String state, String date) {
         StatesMetadata statesMetadata = statesMetadataService.getStateByName(state)
-                .orElseThrow(()->{
+                .orElseThrow(() -> {
                     throw new NoStateFoundException(state);
                 });
         String acronym = statesMetadata.getState();

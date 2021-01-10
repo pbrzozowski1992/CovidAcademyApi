@@ -11,7 +11,7 @@ public class StatesMetadata {
     private String state;
     private String name;
     private String twitter;
-    @Column(columnDefinition="LONGTEXT")
+    @Column(columnDefinition = "LONGTEXT")
     private String covid19Site;
 
     public String getState() {

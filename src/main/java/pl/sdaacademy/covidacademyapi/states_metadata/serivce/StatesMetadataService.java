@@ -22,7 +22,7 @@ public class StatesMetadataService {
     }
 
     public List<StatesMetadata> getStatesMetadata() {
-        if(statesMetadataDbRepository.count() > 0) {
+        if (statesMetadataDbRepository.count() > 0) {
             return statesMetadataDbRepository.findAll();
         }
         return fetchStatesMetadata();
